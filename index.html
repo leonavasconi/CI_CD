@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save Automatik — Automação inteligente para empresas</title>
+  <meta name="description" content="Automação de processos, integrações e robôs sob medida para empresas. Economize tempo e reduza erros com a Save Automatik." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent1:#6ee7b7;
+      --accent2:#7c3aed;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(110,231,183,0.06), transparent 8%),
+                  var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.35;
+      padding:48px 24px;
+    }
+    .container{max-width:1100px;margin:0 auto}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:36px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(124,58,237,0.16)}
+    .logo svg{width:28px;height:28px}
+    nav{display:flex;gap:16px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:14px}
+    nav a.cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#061018;font-weight:700}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:48px}
+    .hero h1{font-size:40px;margin:0 0 12px 0;letter-spacing:-0.02em}
+    .hero p.lead{color:var(--muted);margin:0 0 20px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--accent1);font-size:13px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    .hero-cta{display:flex;gap:12px;margin-top:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#061018}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .feature{display:flex;gap:12px;align-items:flex-start}
+    .feature svg{width:36px;height:36px;flex-shrink:0}
+    .feature h4{margin:0 0 6px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .right-illustration{display:flex;flex-direction:column;gap:12px}
+    .stats{display:flex;gap:8px;align-items:center;justify-content:space-between}
+    .stat{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;text-align:center;flex:1}
+    .stat strong{display:block;font-size:20px}
+    .mockup{height:220px;border-radius:12px;background:linear-gradient(180deg, rgba(6,16,26,0.6), rgba(6,10,16,0.4));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)}
+
+    section.pricing{margin-top:28px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .price{font-size:28px;font-weight:800}
+    .price small{display:block;font-size:13px;color:var(--muted);font-weight:600}
+
+    footer{margin-top:48px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:1fr 1fr}
+      .pricing-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media (max-width:520px){
+      .features{grid-template-columns:1fr}
+      header{padding-bottom:8px}
+      .hero h1{font-size:28px}
+    }
+
+    /* small micro-interactions */
+    .btn:active{transform:translateY(1px)}
+    .card:hover{transform:translateY(-6px);transition:transform 280ms ease}
+    .feature svg{transition:transform 220ms ease}
+    .feature:hover svg{transform:translateY(-4px)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- simple gear + lightning icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M12 2v4" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 5l1.5 3" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 5l-1.5 3" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22v-4" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 12h4" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 12h-4" stroke="#02121A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 20l2-6 4 2 2-6-6 8z" fill="#02121A"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-size:18px;">Save Automatik</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px;">Automação inteligente para empresas</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#solucoes">Soluções</a>
+        <a href="#precos">Preços</a>
+        <a href="#contato">Contato</a>
+        <a class="cta" href="#demo">Agendar demo</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badges">
+            <span class="badge">ERP • CRM • API</span>
+            <span class="badge">+20 integrações prontas</span>
+            <span class="badge">Segurança SOC2</span>
+          </div>
+
+          <h1>Automatize tarefas repetitivas. Foque no que importa.</h1>
+          <p class="lead">Save Automatik cria automações sob medida — desde rotinas financeiras até fluxos de atendimento. Reduza erros, acelere processos e gere economia real.</p>
+
+          <div class="hero-cta">
+            <button class="btn primary" onclick="location.href='#demo'">Quero uma demo</button>
+            <button class="btn ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Fale com o time</button>
+          </div>
+
+          <div class="card" style="margin-top:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <strong>Case rápido</strong>
+                <div style="color:var(--muted);font-size:13px;margin-top:6px">Automação de faturamento reduziu 85% do tempo manual num cliente de varejo.</div>
+              </div>
+              <div style="font-weight:800;color:var(--accent1)">-85%</div>
+            </div>
+
+            <div class="features" style="margin-top:14px">
+              <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <h4>Automação personalizada</h4>
+                  <p>Fluxos desenhados para seu processo — sem adaptação forçada.</p>
+                </div>
+              </div>
+
+              <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <h4>Integrações</h4>
+                  <p>ERP, CRM, bancos e APIs públicas — conectamos tudo.</p>
+                </div>
+              </div>
+
+              <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <h4>Escalável</h4>
+                  <p>Projetado para crescer com seu negócio sem reescrever tudo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right-illustration">
+          <div class="card mockup">
+            <div style="text-align:center">
+              <div style="font-weight:800;font-size:20px">Painel Save Automatik</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:13px">Visão geral das automações ativas e economia mensal</div>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <small>Tempo médio economizado</small>
+              <strong>120h</strong>
+            </div>
+            <div class="stat">
+              <small>Transações autom.</small>
+              <strong>+1.200</strong>
+            </div>
+          </div>
+
+        </aside>
+      </section>
+
+      <section id="solucoes" class="card" style="margin-top:18px">
+        <h3 style="margin-top:0">Soluções</h3>
+        <p style="color:var(--muted)">Oferecemos uma gama de serviços modulares — você escolhe o que precisa.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px">
+          <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)">
+            <strong>Automação Financeira</strong>
+            <p style="color:var(--muted);margin-top:8px">Conciliação, faturamento e notificações bancárias automatizadas.</p>
+          </div>
+          <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)">
+            <strong>Atendimento & Suporte</strong>
+            <p style="color:var(--muted);margin-top:8px">Roteamento de tickets, respostas automáticas e integração com chatbots.</p>
+          </div>
+          <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)">
+            <strong>Operações & Logística</strong>
+            <p style="color:var(--muted);margin-top:8px">Fluxos para pedidos, inventário e rastreabilidade.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="precos" class="pricing">
+        <h3 style="margin-top:20px">Planos</h3>
+        <div class="pricing-grid" style="margin-top:12px">
+          <div class="price-card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <strong>Starter</strong>
+                <div style="color:var(--muted);font-size:13px">Boas automações para pequenas empresas</div>
+              </div>
+              <div class="price">R$ 1.200 <small>/mês</small></div>
+            </div>
+            <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
+              <li>Até 5 automações</li>
+              <li>Integrações padrão</li>
+              <li>Suporte via e-mail</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn primary">Assinar Starter</button></div>
+          </div>
+
+          <div class="price-card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <strong>Business</strong>
+                <div style="color:var(--muted);font-size:13px">Para times com processos maduros</div>
+              </div>
+              <div class="price">R$ 4.500 <small>/mês</small></div>
+            </div>
+            <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
+              <li>Até 25 automações</li>
+              <li>Integrações custom</li>
+              <li>Suporte 24/7</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn primary">Assinar Business</button></div>
+          </div>
+
+          <div class="price-card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <strong>Enterprise</strong>
+                <div style="color:var(--muted);font-size:13px">SLA, private cloud e consultoria</div>
+              </div>
+              <div class="price">Sob consulta</div>
+            </div>
+            <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
+              <li>Automação ilimitada</li>
+              <li>Conectores dedicados</li>
+              <li>Onboarding técnico</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Solicitar proposta</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" style="margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03)">
+        <h3 id="demo">Agende uma demo</h3>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:12px">
+
+          <form id="contact" class="card" style="padding:16px" onsubmit="event.preventDefault();submitForm()">
+            <label style="display:block;margin-bottom:8px">Empresa</label>
+            <input id="company" type="text" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:10px">
+
+            <label style="display:block;margin-bottom:8px">Nome</label>
+            <input id="name" type="text" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:10px">
+
+            <label style="display:block;margin-bottom:8px">E-mail</label>
+            <input id="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:10px">
+
+            <label style="display:block;margin-bottom:8px">Mensagem (opcional)</label>
+            <textarea id="message" rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:12px"></textarea>
+
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn primary" type="submit">Solicitar demo</button>
+              <button class="btn ghost" type="button" onclick="resetForm()">Limpar</button>
+            </div>
+
+            <div id="feedback" style="margin-top:10px;color:var(--accent1);display:none">Mensagem enviada — obrigado! Entraremos em contato.</div>
+          </form>
+
+          <div class="card" style="padding:18px">
+            <h4 style="margin-top:0">Contato</h4>
+            <p style="color:var(--muted);margin-top:6px">Equipe comercial: comercial@saveautomatik.com<br/>Suporte técnico: suporte@saveautomatik.com</p>
+
+            <div style="margin-top:12px">
+              <strong>Localização</strong>
+              <p style="color:var(--muted);margin:6px 0 0 0">São Paulo, Brasil</p>
+            </div>
+
+            <div style="margin-top:12px">
+              <strong>Segurança</strong>
+              <p style="color:var(--muted);margin:6px 0 0 0">Criptografia em trânsito e at rest, logs auditáveis.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Save Automatik — Todos os direitos reservados</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" style="color:var(--muted);text-decoration:none">Política de Privacidade</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">Termos</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function submitForm(){
+      // Demo local behaviour: show a feedback message.
+      document.getElementById('feedback').style.display = 'block';
+      setTimeout(()=>{document.getElementById('feedback').style.display='none'},6000);
+      // Here you would normally post to your API endpoint.
+    }
+    function resetForm(){
+      document.getElementById('company').value='';
+      document.getElementById('name').value='';
+      document.getElementById('email').value='';
+      document.getElementById('message').value='';
+    }
+  </script>
+</body>
+</html>
